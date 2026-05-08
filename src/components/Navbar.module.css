@@ -1,0 +1,111 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition);
+  padding: 1.5rem 0;
+  background: transparent;
+}
+
+.scrolled {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLink {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--accent);
+  transition: var(--transition);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.resumeBtn {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--border-radius);
+  color: var(--accent);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.resumeBtn:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.hamburger {
+  display: none;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+    z-index: 1001;
+  }
+
+  .navLinks {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--bg-secondary);
+    border-left: 1px solid var(--border);
+    transition: 0.4s ease;
+  }
+
+  .navLinks.active {
+    right: 0;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+}
