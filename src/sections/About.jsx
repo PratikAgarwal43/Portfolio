@@ -29,9 +29,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <div className={styles.imageWrapper}>
-              <div className={styles.imagePlaceholder}>
-                <span>Developer Image</span>
-              </div>
+              <img src="/Profile.jpeg" alt="Pratik Agarwal" className={styles.profileImage} />
             </div>
           </motion.div>
         </div>

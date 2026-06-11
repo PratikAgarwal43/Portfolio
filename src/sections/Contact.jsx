@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import styles from './Contact.module.css';
 import { portfolioData } from '../data/portfolioData';
 
@@ -21,10 +21,22 @@ const Contact = () => {
             <p>I'm currently looking for new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
             
             <div className={styles.infoItems}>
-              <div className={styles.infoItem}>
+              <a
+                href={`mailto:${portfolioData.personalInfo.email}`}
+                className={styles.infoItem}
+              >
                 <FaEnvelope className={styles.icon} />
                 <span>{portfolioData.personalInfo.email}</span>
-              </div>
+              </a>
+              <a
+                href={`https://wa.me/${portfolioData.personalInfo.whatsapp.replace(/\D/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.infoItem}
+              >
+                <FaWhatsapp className={`${styles.icon} ${styles.whatsappIcon}`} />
+                <span>{portfolioData.personalInfo.whatsapp}</span>
+              </a>
               <div className={styles.infoItem}>
                 <FaMapMarkerAlt className={styles.icon} />
                 <span>{portfolioData.personalInfo.location}</span>

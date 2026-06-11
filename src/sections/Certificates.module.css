@@ -4,11 +4,180 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+}
+
+/* Thumbnail areas */
+.pdfThumb {
+  background: linear-gradient(135deg, #1f1f1f, #111);
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdfIcon {
+  font-size: 4rem;
+  color: #ef4444;
+}
+
+.imgThumb {
+  height: 160px;
+  overflow: hidden;
+}
+
+.thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .thumbImg {
+  transform: scale(1.06);
+}
+
+/* Card body */
+.cardBody {
+  padding: 1rem 1.25rem 0.75rem;
+}
+
+.certTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.certSubtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.viewHint {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--accent);
+  padding: 0.5rem 1.25rem 0.75rem;
+  font-weight: 500;
+}
+
+/* ── Lightbox ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.lightboxContent {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 820px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 60px rgba(0,0,0,0.8);
+}
+
+.lightboxImg {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  background: #000;
+  display: block;
+}
+
+.pdfEmbed {
+  width: 100%;
+  height: 72vh;
+  border: none;
+  background: #fff;
+}
+
+.lightboxFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: var(--bg-tertiary);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.openBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.openBtn:hover {
+  color: var(--accent-hover);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #fff;
+  font-size: 1.3rem;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background: rgba(255,255,255,0.2);
 }
 
 @media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
   .grid {
     grid-template-columns: 1fr;
   }

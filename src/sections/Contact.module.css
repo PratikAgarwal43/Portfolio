@@ -37,6 +37,15 @@
 .icon {
   color: var(--accent);
   font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.whatsappIcon {
+  color: #25d366;
+}
+
+.infoItem:hover {
+  color: var(--accent);
 }
 
 .socials {
