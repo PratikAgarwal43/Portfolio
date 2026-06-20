@@ -1,0 +1,68 @@
+.backToTop {
+  position: fixed;
+  bottom: 6.5rem;
+  right: 2rem;
+  background-color: var(--bg-tertiary, #1f1f1f);
+  color: var(--text-primary, #ffffff);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  cursor: pointer;
+  border: 1px solid var(--border, #262626);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.backToTop:hover {
+  background-color: var(--accent, #3b82f6);
+  color: #ffffff;
+  border-color: var(--accent, #3b82f6);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.tooltip {
+  position: absolute;
+  right: 4.5rem;
+  background-color: var(--bg-tertiary, #1f1f1f);
+  color: var(--text-primary, #ffffff);
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateX(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border, #262626);
+}
+
+.backToTop:hover .tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .backToTop {
+    bottom: 5.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .icon {
+    font-size: 1rem;
+  }
+  
+  .tooltip {
+    display: none;
+  }
+}

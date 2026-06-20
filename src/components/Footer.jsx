@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import styles from './Footer.module.css';
 import { portfolioData } from '../data/portfolioData';

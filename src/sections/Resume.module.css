@@ -1,54 +1,61 @@
 .resumeSection {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-secondary, #121212);
+}
+
+.resumeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
 .resumeCard {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  border-radius: var(--border-radius);
-  padding: 2.5rem 3rem;
+  background: var(--bg-tertiary, #1f1f1f);
+  border: 1px solid var(--border, #262626);
+  border-radius: var(--border-radius, 12px);
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  max-width: 760px;
-  margin: 0 auto;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   transition: var(--transition);
 }
 
 .resumeCard:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.1);
 }
 
 .iconArea {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .pdfIcon {
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: #ef4444;
   flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(239, 68, 68, 0.2));
 }
 
 .resumeTitle {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 
 .resumeSubtitle {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
 }
 
 .actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-shrink: 0;
 }
 
@@ -56,11 +63,12 @@
 .downloadBtn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.7rem 1.25rem;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: var(--transition);
   white-space: nowrap;
@@ -68,35 +76,100 @@
 
 .viewBtn {
   background: transparent;
-  border: 2px solid var(--accent);
-  color: var(--accent);
+  border: 1px solid var(--accent, #3b82f6);
+  color: var(--accent, #3b82f6);
 }
 
-.viewBtn:hover {
-  background: var(--accent);
-  color: #fff;
+.viewBtn:hover,
+.activeViewBtn {
+  background: var(--accent, #3b82f6);
+  color: #ffffff;
+  border-color: var(--accent, #3b82f6);
 }
 
 .downloadBtn {
-  background: var(--accent);
-  color: #fff;
-  border: 2px solid var(--accent);
+  background: var(--accent, #3b82f6);
+  color: #ffffff;
+  border: 1px solid var(--accent, #3b82f6);
 }
 
 .downloadBtn:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
+  background: var(--accent-hover, #2563eb);
+  border-color: var(--accent-hover, #2563eb);
 }
 
-@media screen and (max-width: 700px) {
+/* ── Preview Container ── */
+.previewContainer {
+  overflow: hidden;
+  border-radius: var(--border-radius, 12px);
+  border: 1px solid var(--border, #262626);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.iframeWrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: #ffffff;
+}
+
+.resumeIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Mobile Fallback Overlay */
+.mobilePreviewOverlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--bg-tertiary, #1f1f1f);
+  color: var(--text-primary);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  gap: 1rem;
+}
+
+.overlayPdfIcon {
+  color: #ef4444;
+}
+
+.mobilePreviewOverlay p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  max-width: 250px;
+}
+
+.overlayOpenBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  background: var(--accent, #3b82f6);
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.overlayOpenBtn:hover {
+  background: var(--accent-hover, #2563eb);
+}
+
+@media screen and (max-width: 768px) {
   .resumeCard {
     flex-direction: column;
     text-align: center;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
   }
 
   .iconArea {
     flex-direction: column;
+    gap: 0.75rem;
   }
 
   .actions {
@@ -106,7 +179,19 @@
 
   .viewBtn,
   .downloadBtn {
-    justify-content: center;
     width: 100%;
+  }
+
+  .iframeWrapper {
+    height: 250px;
+  }
+
+  /* Show mobile overlay and hide iframe on mobile screens */
+  .resumeIframe {
+    display: none;
+  }
+
+  .mobilePreviewOverlay {
+    display: flex;
   }
 }

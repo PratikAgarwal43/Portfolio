@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './CertificateCard.module.css';
 
 const CertificateCard = ({ cert }) => {

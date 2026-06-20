@@ -3,13 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import styles from './Gallery.module.css';
 
-// Dynamically import all images from public/Gallery via Vite's glob
-const rawImages = import.meta.glob('/public/Gallery/*.{jpg,jpeg,png,gif,webp}', { eager: true, as: 'url' });
-
-const images = Object.entries(rawImages).map(([path, url]) => ({
-  src: url,
-  alt: path.split('/').pop().replace(/\.[^.]+$/, '').replace(/[-_]/g, ' '),
-}));
+const images = [
+  {
+    src: '/Gallery/Professional_Photo.jpeg',
+    alt: 'Professional Photo'
+  }
+];
 
 const Gallery = () => {
   const [lightboxIndex, setLightboxIndex] = useState(null);

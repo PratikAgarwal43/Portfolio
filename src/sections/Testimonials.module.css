@@ -1,0 +1,85 @@
+.testimonialsSection {
+  background-color: var(--bg-tertiary, #1f1f1f);
+  position: relative;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.card {
+  background: rgba(31, 31, 31, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius, 12px);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+}
+
+.quoteIconWrapper {
+  margin-bottom: 1.25rem;
+  color: var(--accent, #3b82f6);
+  opacity: 0.8;
+}
+
+.quoteIcon {
+  font-size: 1.8rem;
+}
+
+.feedback {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary, #a3a3a3);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.authorInfo {
+  border-top: 1px solid var(--border, #262626);
+  padding-top: 1.25rem;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary, #ffffff);
+  margin-bottom: 0.25rem;
+}
+
+.role {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #a3a3a3);
+  font-weight: 500;
+}
+
+.role span {
+  color: var(--accent, #3b82f6);
+}
+
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    padding: 2rem 1.5rem;
+  }
+}
